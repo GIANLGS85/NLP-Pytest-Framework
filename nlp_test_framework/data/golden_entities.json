@@ -1,0 +1,14 @@
+{
+  "note_001": [
+    {"text": "John Smith", "label": "PER"},
+    {"text": "12/03/2024", "label": "DATE"}
+  ],
+  "note_002": [
+    {"text": "Emily Carter", "label": "PER"},
+    {"text": "New York General Hospital", "label": "ORG"}
+  ],
+  "note_003": [
+    {"text": "Jane Doe", "label": "PER"},
+    {"text": "Dr. Williams", "label": "PER"}
+  ]
+}

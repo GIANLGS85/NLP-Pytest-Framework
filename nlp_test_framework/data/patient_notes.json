@@ -1,0 +1,17 @@
+[
+  {
+    "id": "note_001",
+    "text": "Patient John Smith, 45 years old, visited on 12/03/2024. Diagnosed with hypertension.",
+    "category": "routine"
+  },
+  {
+    "id": "note_002",
+    "text": "Dr. Emily Carter prescribed ibuprofen 400mg to patient at New York General Hospital.",
+    "category": "follow-up"
+  },
+  {
+    "id": "note_003",
+    "text": "URGENT: Patient Jane Doe experiencing severe chest pain. Contact Dr. Williams immediately.",
+    "category": "urgent"
+  }
+]

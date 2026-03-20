@@ -1,7 +1,6 @@
-spark-nlp==5.4.0
-pyspark==3.5.1
 pytest
-pytest-cov
-faker
-scikit-learn
-pandas
+transformers
+torch
+spacy
+presidio-analyzer
+presidio-anonymizer

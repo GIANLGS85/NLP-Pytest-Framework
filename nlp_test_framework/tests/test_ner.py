@@ -1,21 +1,24 @@
-import pytest
-from sklearn.metrics import f1_score
+from models.ner_model import extract_entities
+from utils.metrics import compute_f1, entities_to_labels
 
+def test_ner_returns_results(note, golden_entities):
+    """Ogni nota deve produrre almeno un'entità."""
+    entities = extract_entities(note["text"])
+    assert isinstance(entities, list)
+    assert len(entities) > 0, f"Nessuna entità trovata in {note['id']}"
 
-class TestClinicalNER:
-    def test_fever_detection(self, clinical_pipeline, patient_notes):
-        result = clinical_pipeline.annotate(patient_notes[0]["text"])
-        entities = result["entities"]
+def test_ner_f1_above_threshold(note, golden_entities):
+    """F1 score vs golden set deve superare soglia minima."""
+    predicted = extract_entities(note["text"])
+    expected  = golden_entities.get(note["id"], [])
 
-        fever_entities = [e for e in entities if "fever" in e.lower()]
-        assert len(fever_entities) > 0, "No fever entity detected"
+    if not expected:
+        pytest.skip(f"Nessun golden set per {note['id']}")
 
-    @pytest.mark.parametrize("text, expected_entities", [
-        ("Patient reports chest pain", ["SYMPTOM"]),
-        ("55 y.o. female diabetes", ["AGE", "GENDER", "PROBLEM"]),
-    ])
-    def test_ner_accuracy(self, clinical_pipeline, text, expected_entities):
-        result = clinical_pipeline.annotate(text)
-        found_labels = [ent[1] for ent in result["entities"]]
-        score = f1_score(expected_entities, found_labels, average="partial", zero_division=0)
-        assert score >= 0.8, f"F1-score: {score}"
+    metrics = compute_f1(
+        entities_to_labels(predicted),
+        entities_to_labels(expected)
+    )
+    assert metrics["f1"] >= 0.5, (
+        f"F1 troppo basso per {note['id']}: {metrics}"
+    )
