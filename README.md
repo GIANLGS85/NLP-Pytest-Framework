@@ -1,4 +1,6 @@
-
+## Project Structure
+The project uses a standard layered architecture to ensure high readability and scalability:
+```text
 nlp_test_framework/
 ├── tests/
 │   ├── test_ner.py       # Entity extraction
@@ -9,3 +11,4 @@ nlp_test_framework/
 │   └── golden_entities.json
 ├── conftest.py
 └── pytest.ini
+```
