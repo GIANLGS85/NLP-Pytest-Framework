@@ -13,5 +13,5 @@ def compute_f1(predicted: list[str], expected: list[str]) -> dict:
     return {"precision": precision, "recall": recall, "f1": f1}
 
 def entities_to_labels(entities: list[dict]) -> list[str]:
-    """Normalizza lista di entity dict in lista di stringhe 'text|label'."""
+    """Normalizes the entity dict list in a list of strings 'text|label'."""
     return [f"{e['text'].lower()}|{e['label']}" for e in entities]

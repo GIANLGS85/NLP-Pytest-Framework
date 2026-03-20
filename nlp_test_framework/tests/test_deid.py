@@ -6,13 +6,13 @@ PHI_NOTES = [
 ]
 
 def test_phi_detected(note):
-    """Deve rilevare almeno un elemento PHI nelle note cliniche."""
+    """must find at least one PHI element (Protected Health Information) in the clinic notes"""
     phi = detect_phi(note["text"])
-    # Non tutte le note hanno PHI, quindi loggiamo senza fallire
+    # Not all the notes contain PHI, so we log without failing
     print(f"\n[{note['id']}] PHI trovati: {[p['type'] for p in phi]}")
 
 def test_deidentification_removes_names():
-    """Dopo de-id i nomi non devono comparire nel testo."""
+    """after de-id names must not be in the text results."""
     for text in PHI_NOTES:
         result = deidentify(text)
         assert "John Smith" not in result

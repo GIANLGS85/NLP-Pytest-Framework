@@ -3,7 +3,7 @@ from functools import lru_cache
 
 @lru_cache(maxsize=1)
 def load_ner_pipeline():
-    """Download automatico al primo run, poi cached."""
+    """Automatic download on first run, then cached."""
     return pipeline(
         "ner",
         model="dslim/bert-base-NER",

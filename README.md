@@ -75,6 +75,28 @@ pip install -r requirements.txt
 
 ---
 
+## Model Caching
+
+HuggingFace models are downloaded automatically on the first run and cached locally at:
+```
+~/.cache/huggingface/hub/
+```
+
+For example, after the first run you will find:
+```
+~/.cache/huggingface/hub/models--dslim--bert-base-NER/
+~/.cache/huggingface/hub/models--facebook--bart-large-mnli/
+~/.cache/huggingface/hub/models--distilbert-base-uncased-finetuned-sst-2-english/
+```
+
+Subsequent runs load the models directly from cache — no internet connection required.
+To change the cache location, set the `HF_HOME` environment variable before running pytest:
+```bash
+export HF_HOME=/path/to/your/custom/cache
+```
+
+---
+
 ## Running Tests
 
 ```bash

@@ -1,10 +1,13 @@
 import pytest
-from utils.data_loader import load_json
-from models.ner_model import load_ner_pipeline
-from models.deid_model import load_engines
-from models.classifier_model import load_classifier
+from nlp_test_framework.utils.data_loader import load_json
+from nlp_test_framework.models.ner_model import load_ner_pipeline
+from nlp_test_framework.models.deid_model import load_engines
+from nlp_test_framework.models.classifier_model import load_classifier
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "nlp_test_framework"))
 
-# ── Setup/teardown globale ─────────────────────────────────────────────────────
+# ── Setup/teardown global ─────────────────────────────────────────────────────
 
 def pytest_configure(config):
     print("\n[setup] Loading NLP models (first run may download)...")
