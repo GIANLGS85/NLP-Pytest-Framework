@@ -39,10 +39,13 @@ def deid_engines():
 def classifier():
     return load_classifier()
 
-# ── Parametrizzazione dinamica ────────────────────────────────────────────────
+@pytest.fixture(scope="session")
+def golden_relations():
+    return load_json("golden_relations.json")
 
+# ── Dynamic Parametrization ────────────────────────────────────────────────
 def pytest_generate_tests(metafunc):
-    """Parametrizza automaticamente i test che usano 'note'."""
+    """automatically parametrize the test case which uses 'note'."""
     if "note" in metafunc.fixturenames:
         notes = load_json("patient_notes.json")
         metafunc.parametrize("note", notes, ids=[n["id"] for n in notes])

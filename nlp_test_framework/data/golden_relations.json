@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rel_001",
+    "text": "Ibuprofen 400mg was prescribed for chest pain.",
+    "expected_relations": [
+      {"entity_a": "ibuprofen", "entity_b": "chest pain", "relation": "treats"}
+    ]
+  },
+  {
+    "id": "rel_002",
+    "text": "The MRI scan confirmed the diagnosis of brain tumor.",
+    "expected_relations": [
+      {"entity_a": "mri scan", "entity_b": "brain tumor", "relation": "diagnoses"}
+    ]
+  },
+  {
+    "id": "rel_003",
+    "text": "Aspirin was avoided due to the patient's bleeding risk.",
+    "expected_relations": [
+      {"entity_a": "aspirin", "entity_b": "bleeding risk", "relation": "contraindicates"}
+    ]
+  }
+]
