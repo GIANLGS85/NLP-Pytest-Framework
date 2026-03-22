@@ -1,4 +1,4 @@
-from transformers import pipeline
+from transformers import pipeline # HuggingFace Transformers library
 from functools import lru_cache
 
 @lru_cache(maxsize=1)
@@ -7,6 +7,7 @@ def load_ner_pipeline():
     return pipeline(
         "ner",
         model="dslim/bert-base-NER",
+        # model="Jean-Baptiste/roberta-large-ner-english", # heavier model more accuracy
         aggregation_strategy="simple"
     )
 
