@@ -1,6 +1,6 @@
 import pytest
-from models.ner_model import extract_entities
-from utils.metrics import compute_f1, entities_to_labels
+from nlp_test_framework.models.ner_model import extract_entities
+from nlp_test_framework.utils.metrics import compute_f1, entities_to_labels
 
 def test_ner_returns_results(note, golden_entities):
     """Each note must produce at least one identity."""

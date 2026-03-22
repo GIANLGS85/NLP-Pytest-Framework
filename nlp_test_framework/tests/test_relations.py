@@ -1,5 +1,5 @@
 import pytest
-from models.relation_model import extract_relations, extract_medical_entities
+from nlp_test_framework.models.relation_model import extract_relations, extract_medical_entities
 
 # ── Basic entity extraction tests ─────────────────────────────────────────────
 

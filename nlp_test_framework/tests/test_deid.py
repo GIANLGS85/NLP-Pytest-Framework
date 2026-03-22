@@ -1,4 +1,4 @@
-from models.deid_model import deidentify, detect_phi
+from nlp_test_framework.models.deid_model import deidentify, detect_phi
 
 PHI_NOTES = [
     "Patient John Smith, DOB 01/01/1980, SSN 123-45-6789",

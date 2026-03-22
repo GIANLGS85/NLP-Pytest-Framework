@@ -1,4 +1,4 @@
-from models.classifier_model import classify
+from nlp_test_framework.models.classifier_model import classify
 
 def test_classification_returns_label(note):
     """each note must receive a label."""

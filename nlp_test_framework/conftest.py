@@ -5,7 +5,7 @@ from nlp_test_framework.models.deid_model import load_engines
 from nlp_test_framework.models.classifier_model import load_classifier
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "nlp_test_framework"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ""))
 
 # ── Setup/teardown global ─────────────────────────────────────────────────────
 

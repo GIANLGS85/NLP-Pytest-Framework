@@ -1,5 +1,6 @@
+from models.ner_model import extract_entities
+
 # Maps extracted diseases to ICD-10-CM codes
-from nlp_test_framework.models.ner_model import extract_entities
 
 CODING_MAP = {
     "hypertension":   "I10",
