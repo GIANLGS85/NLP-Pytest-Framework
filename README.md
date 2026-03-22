@@ -21,22 +21,30 @@ The project uses a standard layered architecture to ensure high readability and 
 
 ```
 nlp_test_framework/
+├── data/
+│   ├── golden_entities.json
+│   ├── golden_relations.json
+│   └── golden_notes.json  
 ├── models/
 │   ├── __init__.py
+│   ├── relation_model.py
 │   ├── ner_model.py          # HuggingFace NER pipeline wrapper
 │   ├── deid_model.py         # Presidio PHI detection and anonymization
 │   └── classifier_model.py  # Zero-shot text classification
 ├── utils/
 │   ├── __init__.py
 │   ├── metrics.py            # precision, recall, f1 for NLP evaluation
-│   └── data_loader.py        # JSON data loading and validation
+│   ├── data_loader.py        # JSON data loading and validation
+│   └── ontology.py          
 ├── tests/
 │   ├── test_ner.py           # Entity extraction tests
 │   ├── test_deid.py          # PHI removal tests
-│   └── test_classification.py
-├── data/
-│   ├── patient_notes.json    # Sample input texts
-│   └── golden_entities.json  # Expected entities for F1 evaluation
+│   ├── test_classification.py
+│   ├── test_medical_coding.py
+│   ├── test_negation.py
+│   ├── test_relations.py
+│   ├── test_ontology.py
+│   └── test_regression.py
 ├── conftest.py               # Fixtures, parametrization, setup/teardown
 ├── pytest.ini                # Pytest configuration
 └── requirements.txt
