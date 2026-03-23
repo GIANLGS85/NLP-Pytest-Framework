@@ -182,12 +182,13 @@ Zero-shot classifier — no fine-tuning needed. Default labels: `urgent`, `routi
 
 `pytest.ini` controls test discovery and output:
 
-```ini
+```
 [pytest]
+pythonpath = ..
 testpaths = tests
 log_cli = true
 log_cli_level = INFO
-addopts = -v --tb=short
+addopts = -v --tb=short --alluredir=reports/allure-results
 ```
 
 ---
