@@ -4,3 +4,4 @@ torch
 spacy
 presidio-analyzer
 presidio-anonymizer
+allure-pytest
